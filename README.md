@@ -56,6 +56,40 @@ docker push <your.local.repo>/chaoskube:v0.21.0
             args:
         ```
 
+## Configuration options
+
+Configuration is done using environment variables which can be configured via the deployment yaml in the following manner:
+```
+args:
+- --interval=1m
+- --labels=environment=test
+```
+
+### Interval
+This configuration option determines the interval between pod terminations, i.e. what is the duraiton of time to wait from one pod termination reuest to another.
+
+Example:
+```
+--interval=1m
+```
+
+### Interval
+This configuration option determines the interval between pod terminations, i.e. what is the duraiton of time to wait from one pod termination reuest to another.
+
+Example:
+```
+--interval=1m
+``` 
+### Labels
+
+Pods with these labels will be the only ones terminated. This option is an "AND" function, meaning, if there are 2 or 3 labels configured here only pods with ALL of the configured labels will be terminated using chaoskube.
+
+Example:
+```
+--labels=environment=test
+```
+
+
 
 
 
