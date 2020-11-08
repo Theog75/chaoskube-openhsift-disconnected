@@ -12,7 +12,7 @@ items:
     - kubernetes
 - apiVersion: v1
   data:
-    .dockerconfigjson: eyJhdXRocyI6eyJkb2NrZXIucmN0LmNvLmlsIjp7InVzZXJuYW1lIjoiamVua2lucyIsInBhc3N3b3JkIjoiMTkwNkludGVsbGkiLCJlbWFpbCI6ImRldkBzb3Npdi5pbyIsImF1dGgiOiJhbVZ1YTJsdWN6b3hPVEEyU1c1MFpXeHNhUT09In19fQ==
+    .dockerconfigjson: eyJhdXRocyI6eyJkb...FpXeHNhUT09In19fQ==
   kind: Secret
   metadata:
     namespace: chaoskube
