@@ -32,17 +32,17 @@ docker push <your.local.repo>/chaoskube:v0.21.0
 
 - edit the yaml file "chaoskube.yml" and change the following:
 
-* Replace eyJhdXRocyI6eyJkb...FpXeHNhUT09In19fQ== with a base64 encoding of the secret used to pull images from your container repository
-```
-- apiVersion: v1
-  data:
-    .dockerconfigjson: eyJhdXRocyI6eyJkb...FpXeHNhUT09In19fQ==
-  kind: Secret
-  metadata:
-    namespace: chaoskube
-    name: repocreds
-  type: kubernetes.io/dockerconfigjson
-  ```
+    * Replace eyJhdXRocyI6eyJkb...FpXeHNhUT09In19fQ== with a base64 encoding of the secret used to pull images from your container repository
+    ```
+    - apiVersion: v1
+      data:
+        .dockerconfigjson: eyJhdXRocyI6eyJkb...FpXeHNhUT09In19fQ==
+      kind: Secret
+      metadata:
+        namespace: chaoskube
+        name: repocreds
+      type: kubernetes.io/dockerconfigjson
+      ```
 
 
 
