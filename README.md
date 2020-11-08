@@ -43,7 +43,7 @@ docker push <your.local.repo>/chaoskube:v0.21.0
         namespace: chaoskube
         name: repocreds
       type: kubernetes.io/dockerconfigjson
-      ```
+    ```
 
     - Replace <your.local.repository> with the url to your local container repository:
 
