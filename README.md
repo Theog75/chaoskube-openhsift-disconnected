@@ -32,7 +32,8 @@ docker push <your.local.repo>/chaoskube:v0.21.0
 
 - edit the yaml file "chaoskube.yml" and change the following:
 
-    * Replace eyJhdXRocyI6eyJkb...FpXeHNhUT09In19fQ== with a base64 encoding of the secret used to pull images from your container repository
+    - Replace eyJhdXRocyI6eyJkb...FpXeHNhUT09In19fQ== with a base64 encoding of the secret used to pull images from your container repository
+
     ```
     - apiVersion: v1
       data:
@@ -43,7 +44,9 @@ docker push <your.local.repo>/chaoskube:v0.21.0
         name: repocreds
       type: kubernetes.io/dockerconfigjson
       ```
-    * Replace <your.local.repository> with the url to your local container repository:
+
+    - Replace <your.local.repository> with the url to your local container repository:
+
       ```
       spec:
         serviceAccountName: chaoskube
