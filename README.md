@@ -34,27 +34,27 @@ docker push <your.local.repo>/chaoskube:v0.21.0
 
     - Replace eyJhdXRocyI6eyJkb...FpXeHNhUT09In19fQ== with a base64 encoding of the secret used to pull images from your container repository
 
-    ```
-    - apiVersion: v1
-      data:
-        .dockerconfigjson: eyJhdXRocyI6eyJkb...FpXeHNhUT09In19fQ==
-      kind: Secret
-      metadata:
-        namespace: chaoskube
-        name: repocreds
-      type: kubernetes.io/dockerconfigjson
-    ```
+        ```
+        - apiVersion: v1
+          data:
+            .dockerconfigjson: eyJhdXRocyI6eyJkb...FpXeHNhUT09In19fQ==
+          kind: Secret
+          metadata:
+            namespace: chaoskube
+            name: repocreds
+          type: kubernetes.io/dockerconfigjson
+        ```
 
     - Replace <your.local.repository> with the url to your local container repository:
 
-      ```
-      spec:
-        serviceAccountName: chaoskube
-        containers:
-        - name: chaoskube
-          image: <your.local.repository>/chaoskube:v0.21.0
-          args:
-      ```
+        ```
+        spec:
+          serviceAccountName: chaoskube
+          containers:
+          - name: chaoskube
+            image: <your.local.repository>/chaoskube:v0.21.0
+            args:
+        ```
 
 
 
