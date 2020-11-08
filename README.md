@@ -56,7 +56,7 @@ docker push <your.local.repo>/chaoskube:v0.21.0
             args:
         ```
 
-## Configuration options
+## Main Configuration options
 
 Configuration is done using environment variables which can be configured via the deployment yaml in the following manner:
 ```
@@ -65,13 +65,7 @@ args:
 - --labels=environment=test
 ```
 
-### Interval
-This configuration option determines the interval between pod terminations, i.e. what is the duraiton of time to wait from one pod termination reuest to another.
-
-Example:
-```
---interval=1m
-```
+for a full list see: https://github.com/linki/chaoskube
 
 ### Interval
 This configuration option determines the interval between pod terminations, i.e. what is the duraiton of time to wait from one pod termination reuest to another.
@@ -79,7 +73,8 @@ This configuration option determines the interval between pod terminations, i.e.
 Example:
 ```
 --interval=1m
-``` 
+```
+
 ### Labels
 
 Pods with these labels will be the only ones terminated. This option is an "AND" function, meaning, if there are 2 or 3 labels configured here only pods with ALL of the configured labels will be terminated using chaoskube.
@@ -89,6 +84,50 @@ Example:
 --labels=environment=test
 ```
 
+### Annotations
+
+Pods with these annotations will be the only ones terminated. This option is an "AND" function, meaning, if there are 2 or 3 annotations configured here only pods with ALL of the configured annotations will be terminated using chaoskube.
+
+Example:
+```
+--annotations=chaos.alpha.kubernetes.io/enabled=true
+```
+
+### Kinds
+
+Pods with owner kinds (Daemonsets, StatefulSets, Deployment etc.) will be terminated. This is also an "AND" function, meaning all conditions must exists in order for the Pod to be terminated.
+
+Example:
+```
+--kinds=Deployment,!DaemonSet
+```
+
+### Namespaces
+
+Pods fitting the namespace configuration will be terminated, there is also a possibility to negate namespaces.
+
+Example:
+```
+--namespace=!kube-system,examplenamespace
+```
+
+### Minimum age
+
+The minimum age of a container. A container with less than the age stated in this configuration option will not be terminated.
+
+Example:
+```
+--minimum-age=1h
+```
+
+### Dry Run
+
+This option determined if chaoskube will actually terminate pods or just show a log of which pod it would have terminated. in order for chaoskube to operate correctly, this needs to be set to false:
+
+Example:
+```
+--no-dry-run
+```
 
 
 
